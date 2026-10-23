@@ -325,7 +325,25 @@
         html { scroll-behavior: auto; }
       }
     </style>
-  </head>
+  <script>
+/* AUTO-UPDATE: checks version.txt; if a newer version exists, refreshes itself once. */
+(function(){
+  var V = "20261023-r2";
+  function check(){
+    fetch("version.txt?ts=" + Date.now(), {cache: "no-store"})
+      .then(function(r){ return r.text(); })
+      .then(function(t){
+        t = (t || "").trim();
+        if(t && t !== V){ location.replace(location.pathname + "?v=" + encodeURIComponent(t)); }
+      })
+      .catch(function(){});
+  }
+  document.addEventListener("visibilitychange", function(){ if(!document.hidden) check(); });
+  window.addEventListener("pageshow", check);
+  check();
+})();
+</script>
+</head>
   <body>
 
     <!-- ================= 1 · COVER ================= -->
