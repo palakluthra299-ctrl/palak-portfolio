@@ -84,18 +84,6 @@
       }
       .browser-body { padding: 26px 28px 30px; }
 
-      /* placeholder frame (photo / character) */
-      .ph-frame {
-        border: 3px dashed var(--ink); border-radius: 22px;
-        background:
-          repeating-linear-gradient(45deg, rgba(61,43,31,0.05) 0 14px, transparent 14px 28px),
-          var(--cream-soft);
-        display: flex; flex-direction: column; align-items: center; justify-content: center;
-        gap: 10px; text-align: center; padding: 24px 18px; color: var(--ink-soft);
-      }
-      .ph-frame .ph-label { font-family: var(--hand); font-weight: 700; font-size: 1.35rem; color: var(--ink); }
-      .ph-frame .ph-sub { font-size: 0.95rem; }
-
       /* ---------- 1 · COVER ---------- */
       .cover { padding: 54px 0 70px; position: relative; }
       .cover-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; flex-wrap: wrap; }
@@ -116,9 +104,8 @@
         font-size: clamp(1.6rem, 4vw, 2.3rem); color: var(--ink); margin: 0 0 34px;
       }
       .cover-grid {
-        display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 34px; align-items: center;
+        display: flex; justify-content: center;
       }
-      .cover-char { height: 340px; transform: rotate(-1.5deg); }
       .hello-bubble {
         position: relative; background: var(--mint); border: var(--border); border-radius: 999px;
         font-family: var(--marker); font-size: clamp(1.5rem, 3.6vw, 2.1rem);
@@ -129,16 +116,16 @@
         background: var(--mint); border-right: var(--border); border-bottom: var(--border);
         transform: rotate(45deg) skew(8deg, 8deg); border-bottom-right-radius: 6px;
       }
-      .cover-side { display: flex; flex-direction: column; gap: 22px; align-items: flex-start; }
-      .cover-note { font-size: 1.15rem; max-width: 42ch; }
-      .cover-tags { display: flex; flex-wrap: wrap; gap: 10px; }
+      .cover-side { display: flex; flex-direction: column; gap: 22px; align-items: center; text-align: center; }
+      .cover-note { font-size: 1.15rem; max-width: 52ch; }
+      .cover-tags { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
       .cover-tags .pill:nth-child(1) { background: var(--pink); transform: rotate(-2deg); }
       .cover-tags .pill:nth-child(2) { background: var(--sky); transform: rotate(1.5deg); }
       .cover-tags .pill:nth-child(3) { background: var(--yellow); transform: rotate(-1deg); }
 
       /* ---------- 2 · HELLO / ABOUT ---------- */
       .about { padding: 30px 0 84px; position: relative; }
-      .about-grid { display: grid; grid-template-columns: 1.25fr 0.75fr; gap: 40px; align-items: start; }
+      .about-grid { max-width: 760px; margin: 0 auto; }
       .about-cards { display: flex; flex-direction: column; gap: 34px; }
       .card-hello { transform: rotate(-1.6deg); }
       .card-hello .browser-bar { background: var(--pink); }
@@ -159,8 +146,6 @@
       .sketch-lines span:nth-child(2) { width: 88%; }
       .sketch-lines span:nth-child(3) { width: 94%; }
       .sketch-lines span:nth-child(4) { width: 62%; }
-      .about-photo { height: 430px; transform: rotate(1.6deg); margin-top: 18px; }
-      .about-caption { font-family: var(--hand); font-weight: 700; font-size: 1.4rem; text-align: center; margin-top: 14px; transform: rotate(-1deg); }
 
       /* ---------- 3 · PANELS ---------- */
       .panels { padding: 10px 0 84px; }
@@ -277,7 +262,6 @@
         text-shadow: 4px 4px 0 var(--pink);
       }
       .thanks-sub { font-size: 1.2rem; max-width: 40ch; margin: 20px 0 0; }
-      .thanks-char { height: 300px; transform: rotate(1.4deg); margin-top: 34px; max-width: 420px; }
       .thanks-contacts { display: flex; flex-direction: column; gap: 18px; align-items: stretch; }
       .thanks-contacts .tc-label { font-family: var(--hand); font-weight: 700; font-size: 1.5rem; transform: rotate(-1deg); }
       .tc-pill {
@@ -302,14 +286,10 @@
         body { font-size: 17px; }
         .cover .doodle { display: none; }
         .cover-title { text-shadow: 3px 3px 0 var(--pink-deep); }
-        .cover-grid, .about-grid, .thanks-grid { grid-template-columns: 1fr; }
-        .cover-char { height: 280px; }
-        .about-photo { height: 320px; margin-top: 4px; }
+        .thanks-grid { grid-template-columns: 1fr; }
         .card-about { margin-left: 0; }
         .index-grid { grid-template-columns: 1fr; }
-        .cover-side { align-items: center; text-align: center; }
         .cover-tags { justify-content: center; }
-        .thanks-char { margin-left: auto; margin-right: auto; }
       }
       @media (max-width: 520px) {
         .work-grid { grid-template-columns: 1fr; }
@@ -342,20 +322,6 @@
         <p class="cover-name">— by Palak Luthra —</p>
 
         <div class="cover-grid">
-          <div class="ph-frame cover-char" role="img" aria-label="Placeholder frame for the illustrated character">
-            <svg width="92" height="92" viewBox="0 0 100 100" aria-hidden="true">
-              <circle cx="50" cy="38" r="20" fill="#fffaf0" stroke="#3d2b1f" stroke-width="3"/>
-              <path d="M30 40 q-4 -22 20 -22 q24 0 20 22 q-2 -12 -10 -14 q2 6 -2 8 q-10 -8 -20 -4 q-6 3 -8 10z" fill="#74349e" stroke="#3d2b1f" stroke-width="3" stroke-linejoin="round"/>
-              <circle cx="43" cy="38" r="2.6" fill="#3d2b1f"/><circle cx="57" cy="38" r="2.6" fill="#3d2b1f"/>
-              <path d="M43 47 q7 6 14 0" fill="none" stroke="#3d2b1f" stroke-width="3" stroke-linecap="round"/>
-              <circle cx="35" cy="45" r="4" fill="#f9b4d9"/><circle cx="65" cy="45" r="4" fill="#f9b4d9"/>
-              <path d="M26 92 q4 -26 24 -26 q20 0 24 26" fill="#a8dcf0" stroke="#3d2b1f" stroke-width="3" stroke-linejoin="round"/>
-              <rect x="60" y="66" width="24" height="16" rx="3" fill="#fffaf0" stroke="#3d2b1f" stroke-width="3"/>
-            </svg>
-            <span class="ph-label">Your illustrated character goes here</span>
-            <span class="ph-sub">Drop in your cartoon avatar illustration</span>
-          </div>
-
           <div class="cover-side">
             <span class="hello-bubble">Hello, people!</span>
             <p class="cover-note">Welcome to my little creative world — yahan milenge AI se bane ads, reels aur brand videos. Scroll karo, sab kuch neeche hai!</p>
@@ -403,19 +369,6 @@
                 <div class="sketch-lines" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
               </div>
             </article>
-          </div>
-
-          <div>
-            <div class="ph-frame about-photo" role="img" aria-label="Placeholder frame for your photo">
-              <svg width="76" height="76" viewBox="0 0 100 100" aria-hidden="true">
-                <rect x="8" y="14" width="84" height="72" rx="10" fill="#fffaf0" stroke="#3d2b1f" stroke-width="3"/>
-                <circle cx="34" cy="38" r="7" fill="#ffd94d" stroke="#3d2b1f" stroke-width="3"/>
-                <path d="M14 82 L40 56 L56 70 L68 58 L86 76 L86 82 Z" fill="#bdf0b4" stroke="#3d2b1f" stroke-width="3" stroke-linejoin="round"/>
-              </svg>
-              <span class="ph-label">Your photo goes here</span>
-              <span class="ph-sub">Apni ek achhi si photo yahan lagao</span>
-            </div>
-            <p class="about-caption">that&rsquo;s me! ↴ say hi</p>
           </div>
         </div>
       </div>
@@ -655,19 +608,6 @@
           <div>
             <h2 class="thanks-title">Thankyou</h2>
             <p class="thanks-sub">Yahan tak scroll karne ke liye shukriya! Agar tumhe mera kaam pasand aaya, toh baat karte hain — tumhara brand, meri AI videos. Bas ek message door hoon.</p>
-            <div class="ph-frame thanks-char" role="img" aria-label="Placeholder frame for the illustrated character">
-              <svg width="84" height="84" viewBox="0 0 100 100" aria-hidden="true">
-                <circle cx="50" cy="38" r="20" fill="#fffaf0" stroke="#3d2b1f" stroke-width="3"/>
-                <path d="M30 40 q-4 -22 20 -22 q24 0 20 22 q-2 -12 -10 -14 q2 6 -2 8 q-10 -8 -20 -4 q-6 3 -8 10z" fill="#74349e" stroke="#3d2b1f" stroke-width="3" stroke-linejoin="round"/>
-                <circle cx="43" cy="38" r="2.6" fill="#3d2b1f"/><circle cx="57" cy="38" r="2.6" fill="#3d2b1f"/>
-                <path d="M43 47 q7 6 14 0" fill="none" stroke="#3d2b1f" stroke-width="3" stroke-linecap="round"/>
-                <circle cx="35" cy="45" r="4" fill="#f9b4d9"/><circle cx="65" cy="45" r="4" fill="#f9b4d9"/>
-                <path d="M24 84 q-6 -18 8 -24 M76 84 q6 -18 -8 -24" fill="none" stroke="#3d2b1f" stroke-width="3" stroke-linecap="round"/>
-                <path d="M26 92 q4 -26 24 -26 q20 0 24 26" fill="#f9b4d9" stroke="#3d2b1f" stroke-width="3" stroke-linejoin="round"/>
-              </svg>
-              <span class="ph-label">Your illustrated character goes here</span>
-              <span class="ph-sub">Waving goodbye wala pose best rahega!</span>
-            </div>
           </div>
 
           <div class="thanks-contacts">
