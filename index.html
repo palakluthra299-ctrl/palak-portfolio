@@ -179,42 +179,9 @@
       }
       .panel-note { font-family: var(--hand); font-weight: 700; font-size: 1.25rem; margin-top: 16px; }
 
-      /* ---------- 4 · WORK INDEX ---------- */
-      .index-sec { padding: 6px 0 84px; position: relative; }
-      .section-head { text-align: center; margin-bottom: 34px; position: relative; z-index: 2; }
-      .section-head .kicker-pill { background: var(--salmon); transform: rotate(-1.5deg); }
-      .section-head h2 {
-        font-family: var(--display); font-weight: 800; font-size: clamp(2.1rem, 6vw, 3.4rem);
-        margin: 14px 0 4px; line-height: 1.05;
-      }
-      .section-head p { font-family: var(--hand); font-weight: 700; font-size: 1.45rem; margin: 0; color: var(--ink-soft); }
-      .index-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
-      .index-card {
-        display: flex; align-items: center; gap: 20px; text-decoration: none;
-        border: var(--border); border-radius: 22px; box-shadow: var(--shadow);
-        padding: 22px 24px; background: var(--paper); position: relative; z-index: 2;
-      }
-      .index-card .num {
-        font-family: var(--display); font-weight: 800; font-size: 2.2rem; line-height: 1;
-        width: 74px; height: 74px; flex: 0 0 auto; border-radius: 50%; border: var(--border);
-        display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow-sm);
-      }
-      .index-card h3 { font-family: var(--display); font-weight: 800; font-size: 1.45rem; margin: 0 0 2px; }
-      .index-card p { margin: 0; color: var(--ink-soft); font-size: 1rem; }
-      .index-card .go { margin-left: auto; flex: 0 0 auto; }
-      .idx-1 { background: #fff8e1; } .idx-1 .num { background: var(--yellow-pop); }
-      .idx-2 { background: #fff0f8; } .idx-2 .num { background: var(--pink); }
-      .idx-3 { background: #f2fdef; } .idx-3 .num { background: var(--mint); }
-      .idx-4 { background: #eef8fd; } .idx-4 .num { background: var(--sky); }
-      .idx-1 { transform: rotate(-0.7deg); } .idx-2 { transform: rotate(0.7deg); }
-      .idx-3 { transform: rotate(0.6deg); } .idx-4 { transform: rotate(-0.6deg); }
-
       /* ---------- 5 · WORK SECTIONS ---------- */
       .work { padding: 64px 0 74px; border-top: var(--border); position: relative; }
       .work-yellow { background: var(--yellow); }
-      .work-pink { background: #fbd7ec; }
-      .work-mint { background: #d9f7d2; }
-      .work-sky { background: #cdeefb; }
       .work-head { display: flex; align-items: flex-end; gap: 18px; flex-wrap: wrap; margin-bottom: 8px; position: relative; z-index: 2; }
       .work-head .wnum {
         font-family: var(--hand); font-weight: 700; font-size: 1.5rem;
@@ -226,16 +193,16 @@
         margin: 0; line-height: 1;
       }
       .work-sub { font-family: var(--hand); font-weight: 700; font-size: 1.45rem; color: var(--ink-soft); margin: 6px 0 30px; position: relative; z-index: 2; }
-      .work-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; position: relative; z-index: 2; }
+      .video-list { display: flex; flex-direction: column; gap: 26px; max-width: 640px; margin: 0 auto; position: relative; z-index: 2; }
+      .video-empty-note { font-family: var(--hand); font-weight: 700; font-size: 1.4rem; color: var(--ink-soft); text-align: center; margin: 34px 0 0; position: relative; z-index: 2; }
       .proj {
         border: var(--border); border-radius: 20px; background: var(--paper);
         box-shadow: var(--shadow); overflow: hidden;
       }
-      .proj:nth-child(1) { transform: rotate(-0.8deg); }
-      .proj:nth-child(2) { transform: rotate(0.7deg); }
-      .proj:nth-child(3) { transform: rotate(-0.5deg); }
+      .proj:nth-child(odd) { transform: rotate(-0.8deg); }
+      .proj:nth-child(even) { transform: rotate(0.7deg); }
       .proj-screen {
-        aspect-ratio: 4 / 3; display: flex; flex-direction: column; align-items: center; justify-content: center;
+        aspect-ratio: 16 / 9; display: flex; flex-direction: column; align-items: center; justify-content: center;
         gap: 12px; border-bottom: var(--border);
         background:
           radial-gradient(circle at 20% 25%, rgba(255,255,255,0.65) 0 42px, transparent 43px),
@@ -280,7 +247,6 @@
       /* ---------- responsive ---------- */
       @media (max-width: 900px) {
         .panels-grid { grid-template-columns: 1fr; }
-        .work-grid { grid-template-columns: repeat(2, 1fr); }
       }
       @media (max-width: 720px) {
         body { font-size: 17px; }
@@ -288,15 +254,11 @@
         .cover-title { text-shadow: 3px 3px 0 var(--pink-deep); }
         .thanks-grid { grid-template-columns: 1fr; }
         .card-about { margin-left: 0; }
-        .index-grid { grid-template-columns: 1fr; }
         .cover-tags { justify-content: center; }
       }
       @media (max-width: 520px) {
-        .work-grid { grid-template-columns: 1fr; }
         .wrap { padding: 0 16px; }
         .browser-body { padding: 22px 20px 26px; }
-        .index-card { padding: 18px; gap: 14px; }
-        .index-card .num { width: 60px; height: 60px; font-size: 1.7rem; }
         .tc-pill .sub { display: none; }
       }
       @media (prefers-reduced-motion: reduce) {
@@ -324,7 +286,7 @@
         <div class="cover-grid">
           <div class="cover-side">
             <span class="hello-bubble">Hello, people!</span>
-            <p class="cover-note">Welcome to my little creative world — yahan milenge AI se bane ads, reels aur brand videos. Scroll karo, sab kuch neeche hai!</p>
+            <p class="cover-note">Welcome to my little creative world — here you will find AI-made ads, reels and brand videos. Scroll down, everything is below!</p>
             <div class="cover-tags">
               <span class="pill">AI Ad Films</span>
               <span class="pill">Reels &amp; Shorts</span>
@@ -365,7 +327,7 @@
               </div>
               <div class="browser-body">
                 <h3>About me:</h3>
-                <p style="margin:0">Yahan apne baare me likho — tum kya karti ho, kis type ke clients ke saath kaam kiya hai, aur tumhari videos khaas kyun hain.</p>
+                <p style="margin:0">Write about yourself here — what you do, the kinds of clients you have worked with, and what makes your videos special.</p>
                 <div class="sketch-lines" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
               </div>
             </article>
@@ -389,7 +351,7 @@
               <span class="tool-chip"><span class="t-ico">✿</span>Canva</span>
               <span class="tool-chip"><span class="t-ico">♪</span>ElevenLabs</span>
             </div>
-            <p class="panel-note">yeh mere roz ke saathi hain!</p>
+            <p class="panel-note">my everyday companions!</p>
           </div>
 
           <div class="panel panel-contact">
@@ -399,7 +361,7 @@
               <span class="pill" style="background:var(--pink)">Instagram <span class="sub">— @yourhandle</span></span>
               <span class="pill" style="background:var(--paper)">Email <span class="sub">— you@example.com</span></span>
             </div>
-            <p class="panel-note">baat karni hai? bas message kar do ↴</p>
+            <p class="panel-note">want to talk? just send a message ↴</p>
           </div>
 
           <div class="panel panel-skills">
@@ -413,188 +375,67 @@
               <span class="pill" style="background:var(--purple-soft)">Hindi Voiceover Videos</span>
               <span class="pill" style="background:var(--salmon)">AI Storytelling</span>
             </div>
-            <a class="pill know-more" href="#work-index">Know More ↓</a>
+            <a class="pill know-more" href="#my-videos">Know More ↓</a>
           </div>
 
         </div>
       </div>
     </section>
 
-    <!-- ================= 4 · WORK INDEX ================= -->
-    <section class="index-sec" id="work-index">
-      <svg class="doodle" style="top:0; left:4%;" width="46" height="46" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 3 L29 18 L45 18 L32 28 L37 44 L24 34 L11 44 L16 28 L3 18 L19 18 Z" fill="#a8dcf0" stroke="#3d2b1f" stroke-width="2.5" stroke-linejoin="round"/></svg>
-      <svg class="doodle" style="bottom:14px; right:4%;" width="58" height="40" viewBox="0 0 60 44" aria-hidden="true"><path d="M56 6 C 42 2, 32 14, 18 9 M18 9 l9 -2 M18 9 l1 10" fill="none" stroke="#74349e" stroke-width="3" stroke-linecap="round"/></svg>
-
-      <div class="wrap">
-        <div class="section-head">
-          <span class="pill kicker-pill">✎ Index</span>
-          <h2>My Work</h2>
-          <p>chaar categories — jis par bhi click karo, wahan pahunch jaoge!</p>
-        </div>
-
-        <div class="index-grid">
-          <a class="index-card idx-1" href="#work-ads">
-            <span class="num">01</span>
-            <span><h3>AI Ad Films</h3><p>Brands ke liye AI ad films aur commercials</p></span>
-            <svg class="go" width="34" height="24" viewBox="0 0 34 24" aria-hidden="true"><path d="M3 12 H27 M27 12 l-8 -8 M27 12 l-8 8" fill="none" stroke="#3d2b1f" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
-          <a class="index-card idx-2" href="#work-reels">
-            <span class="num">02</span>
-            <span><h3>Reels &amp; Shorts</h3><p>Short-form videos jo scroll rok dein</p></span>
-            <svg class="go" width="34" height="24" viewBox="0 0 34 24" aria-hidden="true"><path d="M3 12 H27 M27 12 l-8 -8 M27 12 l-8 8" fill="none" stroke="#3d2b1f" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
-          <a class="index-card idx-3" href="#work-brand">
-            <span class="num">03</span>
-            <span><h3>Brand &amp; Product Videos</h3><p>Product showcases aur brand stories</p></span>
-            <svg class="go" width="34" height="24" viewBox="0 0 34 24" aria-hidden="true"><path d="M3 12 H27 M27 12 l-8 -8 M27 12 l-8 8" fill="none" stroke="#3d2b1f" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
-          <a class="index-card idx-4" href="#work-story">
-            <span class="num">04</span>
-            <span><h3>Storytelling Videos</h3><p>Characters aur kahaniyon wale AI videos</p></span>
-            <svg class="go" width="34" height="24" viewBox="0 0 34 24" aria-hidden="true"><path d="M3 12 H27 M27 12 l-8 -8 M27 12 l-8 8" fill="none" stroke="#3d2b1f" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================= 5 · WORK SECTIONS ================= -->
-    <section class="work work-yellow" id="work-ads">
+    <!-- ================= 4 · MY VIDEOS ================= -->
+    <section class="work work-yellow" id="my-videos">
       <svg class="doodle" style="top:26px; right:4%;" width="44" height="44" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 3 L29 18 L45 18 L32 28 L37 44 L24 34 L11 44 L16 28 L3 18 L19 18 Z" fill="#fffaf0" stroke="#3d2b1f" stroke-width="2.5" stroke-linejoin="round"/></svg>
       <div class="wrap">
         <div class="work-head">
-          <span class="wnum">no. 01</span>
-          <h2>AI Ad Films</h2>
+          <h2>My Videos</h2>
           <svg width="46" height="30" viewBox="0 0 46 30" aria-hidden="true"><path d="M4 6 C 16 22, 30 24, 40 16 M40 16 l-10 0 M40 16 l-3 -9" fill="none" stroke="#74349e" stroke-width="3" stroke-linecap="round"/></svg>
         </div>
-        <p class="work-sub">brands ke liye banaye gaye AI ad films — apne projects yahan add karo</p>
-        <div class="work-grid">
+        <p class="work-sub">all my videos, one below the other</p>
+        <div class="video-list">
           <article class="proj">
             <div class="proj-screen">
               <span class="play-btn"><svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5 L20 12 L7 19.5 Z" fill="#f28cc4" stroke="#3d2b1f" stroke-width="2.2" stroke-linejoin="round"/></svg></span>
-              <span class="proj-txt">Your project here</span>
+              <span class="proj-txt">Video coming soon</span>
             </div>
-            <div class="proj-meta"><span class="t">Project Title</span><span class="tag" style="background:var(--yellow)">Ad Film</span></div>
-          </article>
-          <article class="proj">
-            <div class="proj-screen">
-              <span class="play-btn"><svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5 L20 12 L7 19.5 Z" fill="#f28cc4" stroke="#3d2b1f" stroke-width="2.2" stroke-linejoin="round"/></svg></span>
-              <span class="proj-txt">Your project here</span>
-            </div>
-            <div class="proj-meta"><span class="t">Project Title</span><span class="tag" style="background:var(--yellow)">Ad Film</span></div>
-          </article>
-          <article class="proj">
-            <div class="proj-screen">
-              <span class="play-btn"><svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5 L20 12 L7 19.5 Z" fill="#f28cc4" stroke="#3d2b1f" stroke-width="2.2" stroke-linejoin="round"/></svg></span>
-              <span class="proj-txt">Your project here</span>
-            </div>
-            <div class="proj-meta"><span class="t">Project Title</span><span class="tag" style="background:var(--yellow)">Ad Film</span></div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="work work-pink" id="work-reels">
-      <svg class="doodle" style="top:26px; right:4%;" width="52" height="34" viewBox="0 0 56 30" aria-hidden="true"><path d="M3 20 C 14 6, 26 26, 38 12 C 44 5, 50 8, 53 10" fill="none" stroke="#74349e" stroke-width="3" stroke-linecap="round"/></svg>
-      <div class="wrap">
-        <div class="work-head">
-          <span class="wnum">no. 02</span>
-          <h2>Reels &amp; Shorts</h2>
-          <svg width="46" height="30" viewBox="0 0 46 30" aria-hidden="true"><path d="M4 6 C 16 22, 30 24, 40 16 M40 16 l-10 0 M40 16 l-3 -9" fill="none" stroke="#3d2b1f" stroke-width="3" stroke-linecap="round"/></svg>
-        </div>
-        <p class="work-sub">chhote format, bada impact — apni best reels yahan lagao</p>
-        <div class="work-grid">
-          <article class="proj">
-            <div class="proj-screen">
-              <span class="play-btn"><svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5 L20 12 L7 19.5 Z" fill="#5db9dd" stroke="#3d2b1f" stroke-width="2.2" stroke-linejoin="round"/></svg></span>
-              <span class="proj-txt">Your project here</span>
-            </div>
-            <div class="proj-meta"><span class="t">Project Title</span><span class="tag" style="background:var(--pink)">Reel</span></div>
+            <div class="proj-meta"><span class="t">Video 1</span></div>
           </article>
           <article class="proj">
             <div class="proj-screen">
               <span class="play-btn"><svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5 L20 12 L7 19.5 Z" fill="#5db9dd" stroke="#3d2b1f" stroke-width="2.2" stroke-linejoin="round"/></svg></span>
-              <span class="proj-txt">Your project here</span>
+              <span class="proj-txt">Video coming soon</span>
             </div>
-            <div class="proj-meta"><span class="t">Project Title</span><span class="tag" style="background:var(--pink)">Reel</span></div>
+            <div class="proj-meta"><span class="t">Video 2</span></div>
+          </article>
+          <article class="proj">
+            <div class="proj-screen">
+              <span class="play-btn"><svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5 L20 12 L7 19.5 Z" fill="#7ed47a" stroke="#3d2b1f" stroke-width="2.2" stroke-linejoin="round"/></svg></span>
+              <span class="proj-txt">Video coming soon</span>
+            </div>
+            <div class="proj-meta"><span class="t">Video 3</span></div>
+          </article>
+          <article class="proj">
+            <div class="proj-screen">
+              <span class="play-btn"><svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5 L20 12 L7 19.5 Z" fill="#74349e" stroke="#3d2b1f" stroke-width="2.2" stroke-linejoin="round"/></svg></span>
+              <span class="proj-txt">Video coming soon</span>
+            </div>
+            <div class="proj-meta"><span class="t">Video 4</span></div>
+          </article>
+          <article class="proj">
+            <div class="proj-screen">
+              <span class="play-btn"><svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5 L20 12 L7 19.5 Z" fill="#f28cc4" stroke="#3d2b1f" stroke-width="2.2" stroke-linejoin="round"/></svg></span>
+              <span class="proj-txt">Video coming soon</span>
+            </div>
+            <div class="proj-meta"><span class="t">Video 5</span></div>
           </article>
           <article class="proj">
             <div class="proj-screen">
               <span class="play-btn"><svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5 L20 12 L7 19.5 Z" fill="#5db9dd" stroke="#3d2b1f" stroke-width="2.2" stroke-linejoin="round"/></svg></span>
-              <span class="proj-txt">Your project here</span>
+              <span class="proj-txt">Video coming soon</span>
             </div>
-            <div class="proj-meta"><span class="t">Project Title</span><span class="tag" style="background:var(--pink)">Reel</span></div>
+            <div class="proj-meta"><span class="t">Video 6</span></div>
           </article>
         </div>
-      </div>
-    </section>
-
-    <section class="work work-mint" id="work-brand">
-      <svg class="doodle" style="top:26px; right:4%;" width="44" height="44" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 3 L29 18 L45 18 L32 28 L37 44 L24 34 L11 44 L16 28 L3 18 L19 18 Z" fill="#ffd94d" stroke="#3d2b1f" stroke-width="2.5" stroke-linejoin="round"/></svg>
-      <div class="wrap">
-        <div class="work-head">
-          <span class="wnum">no. 03</span>
-          <h2>Brand &amp; Product Videos</h2>
-          <svg width="46" height="30" viewBox="0 0 46 30" aria-hidden="true"><path d="M4 6 C 16 22, 30 24, 40 16 M40 16 l-10 0 M40 16 l-3 -9" fill="none" stroke="#74349e" stroke-width="3" stroke-linecap="round"/></svg>
-        </div>
-        <p class="work-sub">product ko hero banane wale videos — apne projects yahan add karo</p>
-        <div class="work-grid">
-          <article class="proj">
-            <div class="proj-screen">
-              <span class="play-btn"><svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5 L20 12 L7 19.5 Z" fill="#7ed47a" stroke="#3d2b1f" stroke-width="2.2" stroke-linejoin="round"/></svg></span>
-              <span class="proj-txt">Your project here</span>
-            </div>
-            <div class="proj-meta"><span class="t">Project Title</span><span class="tag" style="background:var(--mint)">Brand</span></div>
-          </article>
-          <article class="proj">
-            <div class="proj-screen">
-              <span class="play-btn"><svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5 L20 12 L7 19.5 Z" fill="#7ed47a" stroke="#3d2b1f" stroke-width="2.2" stroke-linejoin="round"/></svg></span>
-              <span class="proj-txt">Your project here</span>
-            </div>
-            <div class="proj-meta"><span class="t">Project Title</span><span class="tag" style="background:var(--mint)">Brand</span></div>
-          </article>
-          <article class="proj">
-            <div class="proj-screen">
-              <span class="play-btn"><svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5 L20 12 L7 19.5 Z" fill="#7ed47a" stroke="#3d2b1f" stroke-width="2.2" stroke-linejoin="round"/></svg></span>
-              <span class="proj-txt">Your project here</span>
-            </div>
-            <div class="proj-meta"><span class="t">Project Title</span><span class="tag" style="background:var(--mint)">Brand</span></div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="work work-sky" id="work-story">
-      <svg class="doodle" style="top:26px; right:4%;" width="52" height="52" viewBox="0 0 52 52" aria-hidden="true"><path d="M6 6 C 20 30, 30 34, 44 40 M44 40 l-11 1 M44 40 l-3 -11" fill="none" stroke="#74349e" stroke-width="3" stroke-linecap="round"/></svg>
-      <div class="wrap">
-        <div class="work-head">
-          <span class="wnum">no. 04</span>
-          <h2>Storytelling Videos</h2>
-          <svg width="46" height="30" viewBox="0 0 46 30" aria-hidden="true"><path d="M4 6 C 16 22, 30 24, 40 16 M40 16 l-10 0 M40 16 l-3 -9" fill="none" stroke="#3d2b1f" stroke-width="3" stroke-linecap="round"/></svg>
-        </div>
-        <p class="work-sub">characters, kahaniyan aur AI magic — apni story videos yahan lagao</p>
-        <div class="work-grid">
-          <article class="proj">
-            <div class="proj-screen">
-              <span class="play-btn"><svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5 L20 12 L7 19.5 Z" fill="#74349e" stroke="#3d2b1f" stroke-width="2.2" stroke-linejoin="round"/></svg></span>
-              <span class="proj-txt">Your project here</span>
-            </div>
-            <div class="proj-meta"><span class="t">Project Title</span><span class="tag" style="background:var(--sky)">Story</span></div>
-          </article>
-          <article class="proj">
-            <div class="proj-screen">
-              <span class="play-btn"><svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5 L20 12 L7 19.5 Z" fill="#74349e" stroke="#3d2b1f" stroke-width="2.2" stroke-linejoin="round"/></svg></span>
-              <span class="proj-txt">Your project here</span>
-            </div>
-            <div class="proj-meta"><span class="t">Project Title</span><span class="tag" style="background:var(--sky)">Story</span></div>
-          </article>
-          <article class="proj">
-            <div class="proj-screen">
-              <span class="play-btn"><svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5 L20 12 L7 19.5 Z" fill="#74349e" stroke="#3d2b1f" stroke-width="2.2" stroke-linejoin="round"/></svg></span>
-              <span class="proj-txt">Your project here</span>
-            </div>
-            <div class="proj-meta"><span class="t">Project Title</span><span class="tag" style="background:var(--sky)">Story</span></div>
-          </article>
-        </div>
+        <p class="video-empty-note">Videos coming soon — new videos will be added here, one below the other.</p>
       </div>
     </section>
 
@@ -607,7 +448,7 @@
         <div class="thanks-grid">
           <div>
             <h2 class="thanks-title">Thankyou</h2>
-            <p class="thanks-sub">Yahan tak scroll karne ke liye shukriya! Agar tumhe mera kaam pasand aaya, toh baat karte hain — tumhara brand, meri AI videos. Bas ek message door hoon.</p>
+            <p class="thanks-sub">Thank you for scrolling all the way here! If you liked my work, let&rsquo;s talk — your brand, my AI videos. I am just one message away.</p>
           </div>
 
           <div class="thanks-contacts">
@@ -631,7 +472,7 @@
           </div>
         </div>
 
-        <p class="foot-note">✎ Palak Luthra · AI Video Creator · Portfolio 2026 — template, abhi update ho raha hai</p>
+        <p class="foot-note">✎ Palak Luthra · AI Video Creator · Portfolio 2026 — template, being updated</p>
       </div>
     </section>
 
