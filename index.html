@@ -342,7 +342,7 @@
   <script>
 /* AUTO-UPDATE: checks version.txt; if a newer version exists, refreshes itself once. */
 (function(){
-  var V = "20261024-r2";
+  var V = "20261024-r3";
   function check(){
     fetch("version.txt?ts=" + Date.now(), {cache: "no-store"})
       .then(function(r){ return r.text(); })
@@ -580,6 +580,13 @@
               <span class="play-btn"><svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5 L20 12 L7 19.5 Z" fill="#f28cc4" stroke="#3d2b1f" stroke-width="2.2" stroke-linejoin="round"/></svg></span>
             </button>
             <div class="proj-meta"><span class="t">Men's Fashion Style Video</span><span class="tag">Video 13</span></div>
+          </article>
+          <article class="proj">
+            <button type="button" class="proj-thumb" data-src="videos/video-14.mp4" data-poster="videos/video-14-poster.jpg" data-title="The Frame Fable — Dragon Comedy Video" aria-label="Play video: The Frame Fable — Dragon Comedy Video">
+              <img src="videos/video-14-poster.jpg" alt="The Frame Fable — Dragon Comedy Video — video thumbnail" loading="lazy" />
+              <span class="play-btn"><svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5 L20 12 L7 19.5 Z" fill="#f28cc4" stroke="#3d2b1f" stroke-width="2.2" stroke-linejoin="round"/></svg></span>
+            </button>
+            <div class="proj-meta"><span class="t">The Frame Fable — Dragon Comedy Video</span><span class="tag">Video 14</span></div>
           </article>
         </div>
         <p class="video-empty-note">More videos coming soon — each new video will be added to this grid.</p>
