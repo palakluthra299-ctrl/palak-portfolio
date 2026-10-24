@@ -342,7 +342,7 @@
   <script>
 /* AUTO-UPDATE: checks version.txt; if a newer version exists, refreshes itself once. */
 (function(){
-  var V = "20261024-r11";
+  var V = "20261024-r12";
   function check(){
     fetch("version.txt?ts=" + Date.now(), {cache: "no-store"})
       .then(function(r){ return r.text(); })
@@ -680,9 +680,22 @@
         function openPlayer(src, poster, title) {
           fallback.hidden = true;
           fallbackLink.href = src;
-          // Set the source and explicitly load it before playing — some
-          // mobile browsers ignore play() when src is swapped without
-          // load() being called first.
+          // WellWith-style: build a FRESH video element on every click
+          // (autoplay, like wellwith.shop) instead of reusing one element
+          // whose src was removed on close — a reused element can sit
+          // stuck at 0:00 on mobile Chrome.
+          var fresh = document.createElement('video');
+          fresh.id = 'player-video';
+          fresh.controls = true;
+          fresh.playsInline = true;
+          fresh.autoplay = true;
+          fresh.setAttribute('preload', 'auto');
+          fresh.setAttribute('autoplay', '');
+          if (pvideo && pvideo.parentNode) { pvideo.parentNode.replaceChild(fresh, pvideo); }
+          pvideo = fresh;
+          pvideo.addEventListener('error', function () {
+            if (isOpen && pvideo.getAttribute('src')) { fallback.hidden = false; }
+          }, true);
           pvideo.src = src;
           if (poster) { pvideo.poster = poster; } else { pvideo.removeAttribute('poster'); }
           pvideo.setAttribute('aria-label', title || 'Video');
@@ -698,13 +711,6 @@
           }
           tryPlay();
         }
-
-        // If the video file itself fails to load (bad network, unsupported
-        // file on an old phone), offer a direct link instead of a dead
-        // black box.
-        pvideo.addEventListener('error', function () {
-          if (isOpen && pvideo.getAttribute('src')) { fallback.hidden = false; }
-        }, true);
 
         function closePlayer() {
           if (!isOpen) { return; }
