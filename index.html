@@ -163,7 +163,8 @@
 
       /* ---------- 3 · PANELS ---------- */
       .panels { padding: 10px 0 84px; }
-      .panels-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; align-items: stretch; }
+      .panels-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; align-items: start; }
+      button, a { touch-action: manipulation; }
       .panel {
         border: var(--border); border-radius: 24px; box-shadow: var(--shadow);
         padding: 24px 22px 28px; position: relative;
@@ -320,8 +321,14 @@
       }
       @media (max-width: 720px) {
         body { font-size: 17px; }
+        .cover { padding: 28px 0 32px; }
+        .cover-name { margin-bottom: 18px; }
         .cover .doodle { display: none; }
         .cover-title { text-shadow: 3px 3px 0 var(--pink-deep); }
+        .about { padding: 16px 0 36px; }
+        .panels { padding: 8px 0 36px; }
+        .work-sub { margin-bottom: 18px; }
+        .thanks { padding: 40px 0 48px; }
         .thanks-grid { grid-template-columns: 1fr; }
         .card-about { margin-left: 0; }
         .cover-tags { justify-content: center; }
@@ -329,6 +336,7 @@
       @media (max-width: 520px) {
         .wrap { padding: 0 16px; }
         .browser-body { padding: 22px 20px 26px; }
+        .tc-pill { flex-wrap: wrap; padding: 11px 16px; font-size: 1rem; overflow-wrap: anywhere; }
         .tc-pill .sub { display: none; }
         .video-list { gap: 14px; }
         .proj-meta { padding: 10px 12px; }
@@ -342,7 +350,7 @@
   <script>
 /* AUTO-UPDATE: checks version.txt; if a newer version exists, refreshes itself once. */
 (function(){
-  var V = "20261024-r13";
+  var V = "20261024-r14";
   function check(){
     fetch("version.txt?ts=" + Date.now(), {cache: "no-store"})
       .then(function(r){ return r.text(); })
