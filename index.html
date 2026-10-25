@@ -355,7 +355,7 @@
   <script>
 /* AUTO-UPDATE: checks version.txt; if a newer version exists, refreshes itself once. */
 (function(){
-  var V = "20261024-r18";
+  var V = "20261025-r19";
   function check(){
     fetch("version.txt?ts=" + Date.now(), {cache: "no-store"})
       .then(function(r){ return r.text(); })
@@ -642,6 +642,13 @@
               <span class="play-btn"><svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5 L20 12 L7 19.5 Z" fill="#f28cc4" stroke="#3d2b1f" stroke-width="2.2" stroke-linejoin="round"/></svg></span>
             </button>
             <div class="proj-meta"><span class="t">Sea Buckthorn Mascot Video</span><span class="tag">Video 20</span></div>
+          </article>
+          <article class="proj">
+            <button type="button" class="proj-thumb" data-src="videos/video-21.mp4?v=r19" data-poster="videos/video-21-poster.jpg?v=r19" data-title="Cinematic Bus Stop Story Video" aria-label="Play video: Cinematic Bus Stop Story Video">
+              <img src="videos/video-21-poster.jpg?v=r19" alt="Cinematic Bus Stop Story Video — video thumbnail" loading="lazy" decoding="async" />
+              <span class="play-btn"><svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5 L20 12 L7 19.5 Z" fill="#f28cc4" stroke="#3d2b1f" stroke-width="2.2" stroke-linejoin="round"/></svg></span>
+            </button>
+            <div class="proj-meta"><span class="t">Cinematic Bus Stop Story Video</span><span class="tag">Video 21</span></div>
           </article>
         </div>
         <p class="video-empty-note">More videos coming soon — each new video will be added to this grid.</p>
