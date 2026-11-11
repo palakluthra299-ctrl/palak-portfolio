@@ -355,7 +355,7 @@
   <script>
 /* AUTO-UPDATE: checks version.txt; if a newer version exists, refreshes itself once. */
 (function(){
-  var V = "20261104-r24";
+  var V = "20261111-r25";
   function check(){
     fetch("version.txt?ts=" + Date.now(), {cache: "no-store"})
       .then(function(r){ return r.text(); })
@@ -698,6 +698,13 @@
               <span class="play-btn"><svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5 L20 12 L7 19.5 Z" fill="#f28cc4" stroke="#3d2b1f" stroke-width="2.2" stroke-linejoin="round"/></svg></span>
             </button>
             <div class="proj-meta"><span class="t">Cinematic Song Video</span><span class="tag">Video 28</span></div>
+          </article>
+          <article class="proj">
+            <button type="button" class="proj-thumb" data-src="videos/video-29.mp4?v=r25" data-poster="videos/video-29-poster.jpg?v=r25" data-title="Real Estate Video" aria-label="Play video: Real Estate Video">
+              <img src="videos/video-29-poster.jpg?v=r25" alt="Real Estate Video — video thumbnail" loading="lazy" decoding="async" />
+              <span class="play-btn"><svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5 L20 12 L7 19.5 Z" fill="#f28cc4" stroke="#3d2b1f" stroke-width="2.2" stroke-linejoin="round"/></svg></span>
+            </button>
+            <div class="proj-meta"><span class="t">Real Estate Video</span><span class="tag">Video 29</span></div>
           </article>
         </div>
         <p class="video-empty-note">More videos coming soon — each new video will be added to this grid.</p>
